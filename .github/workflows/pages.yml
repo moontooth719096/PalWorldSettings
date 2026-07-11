@@ -15,20 +15,22 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      PAGES_PAT: ${{ secrets.PAGES_PAT }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
 
       - name: Setup Pages
-        if: ${{ secrets.PAGES_PAT != '' }}
+        if: ${{ env.PAGES_PAT != '' }}
         uses: actions/configure-pages@v6
         with:
-          token: ${{ secrets.PAGES_PAT }}
+          token: ${{ env.PAGES_PAT }}
           enablement: true
 
       - name: Verify Pages is enabled
-        if: ${{ secrets.PAGES_PAT == '' }}
+        if: ${{ env.PAGES_PAT == '' }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
