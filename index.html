@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PalWorld ?蝺刻摩??/title>
+  <title>PalWorld 設定編輯器</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -445,76 +445,76 @@
   <div class="shell">
     <section class="hero">
       <div class="eyebrow">PalWorld Utility</div>
-      <h1>PalWorld ?蝺刻摩??/h1>
-      <p class="intro">??憪身摰畾菔票?脖?嚗?銝圾??撠梯?刻”?株矽?游??賂??敺?銝?萇???PalWorld ?閬??澆????Ｘ蝝?蝡荔??湔?函汗?券???胯?/p>
+      <h1>PalWorld 設定編輯器</h1>
+      <p class="intro">貼上 PalWorld 伺服器的 OptionSettings 設定字串，快速解析、搜尋、修改並重新產生可貼回設定檔的結果。也支援把新版設定欄位合併進舊設定，方便升版時保留既有內容。</p>
     </section>
 
     <div class="layout">
       <aside class="panel">
         <section class="panel-section">
-          <h2 class="panel-title">雿輻?孵?</h2>
+          <h2 class="panel-title">使用方式</h2>
           <ol class="hint-list">
-            <li>鞎潔??暹?閮剖?????/li>
-            <li>蝟餌絞??圾???閬?銋???圾?身摰?/li>
-            <li>隤踵?詨潦???銝脫?撖Ⅳ甈???/li>
-            <li>敺撓?箏?銴ˊ蝯?鞎澆?閮剖?瑼?/li>
-            <li>?亥?瘝輻??閮剖?嚗蝙?具??砍?憟??????憟?啁???/li>
+            <li>貼上完整的設定字串或整段設定檔內容。</li>
+            <li>按下「解析設定」後，系統會自動拆解欄位並顯示在右側。</li>
+            <li>可以使用搜尋框快速找欄位，並直接修改數值或文字。</li>
+            <li>修改完成後，按「產生輸出」或直接複製結果。</li>
+            <li>如果是版本升級，可以切到合併模式，把新版欄位補進舊設定。</li>
           </ol>
         </section>
 
         <section class="panel-section">
-          <h2 class="panel-title">??璅∪?</h2>
-          <p class="panel-copy">????航??湔蝺刻摩?桐??閮剖?嚗??舀??????憟?唳?身摰?/p>
+          <h2 class="panel-title">操作模式</h2>
+          <p class="panel-copy">選擇要單純解析一份設定，或把新版設定欄位合併到既有設定中。</p>
           <div class="mode-options" id="modeSelect">
             <label class="mode-option" for="modeSingle">
               <input id="modeSingle" type="radio" name="editorMode" value="single" checked>
               <span>
-                <strong>?桐??蝺刻摩</strong>
-                <span>?湔鞎潔?銝隞質身摰?閫??敺銵典銝剛矽?游??訾蒂頛詨蝯???/span>
+                <strong>單一設定編輯</strong>
+                <span>貼上一份設定後直接解析、修改並產生新的輸出內容。</span>
               </span>
             </label>
             <label class="mode-option" for="modeMerge">
               <input id="modeMerge" type="radio" name="editorMode" value="merge">
               <span>
-                <strong>?啗????豢窒??/strong>
-                <span>隞交?身摰?箏?嚗??刻??葉????潘?靽??啁??啣????/span>
+                <strong>新版欄位合併</strong>
+                <span>以新版設定為基礎，合併舊設定中已有的值，補齊遺漏欄位。</span>
               </span>
             </label>
           </div>
         </section>
 
         <section class="panel-section mode-block" data-mode-target="single">
-          <h2 class="panel-title">??閮剖?</h2>
-          <p class="panel-copy">?舀雿票銝?摰?抵??澆?嚗??舀?芾票 OptionSettings=(...) ??銵票銝???圾??銋????甈∟圾?身摰?/p>
+          <h2 class="panel-title">原始設定</h2>
+          <p class="panel-copy">貼上包含 OptionSettings=(...) 的設定字串，或直接貼上整段設定檔內容，系統會自動抓出可編輯的欄位。</p>
           <textarea id="rawInput" spellcheck="false"></textarea>
           <div class="actions">
-            <button class="primary" id="parseButton" type="button">閫??閮剖?</button>
-            <button class="ghost" id="resetButton" type="button">皜征</button>
+            <button class="primary" id="parseButton" type="button">解析設定</button>
+            <button class="ghost" id="resetButton" type="button">重設</button>
           </div>
           <div id="status" class="status"></div>
         </section>
 
         <section class="panel-section mode-block" data-mode-target="merge">
-          <h2 class="panel-title">?撠?</h2>
-          <p class="panel-copy">鞎潔??啁?閮剖????身摰?嚗頂蝯望????葉????潸???啁?嚗撠?????豢?靽???/p>
+          <h2 class="panel-title">新版欄位合併</h2>
+          <p class="panel-copy">貼上新版設定與舊版設定，系統會保留舊值並補齊新版新增欄位，方便更新伺服器版本。</p>
           <div class="controls">
-            <textarea id="newVersionInput" spellcheck="false" placeholder="鞎潔??啁?閮剖?嚗??箸?蝯撓?箇??箏?"></textarea>
-            <textarea id="oldVersionInput" spellcheck="false" placeholder="鞎潔???閮剖?嚗頂蝯勗???典?????></textarea>
+            <textarea id="newVersionInput" spellcheck="false" placeholder="貼上新版設定內容，例如更新後的預設 OptionSettings。"></textarea>
+            <textarea id="oldVersionInput" spellcheck="false" placeholder="貼上舊版設定內容，系統會盡量保留你原本的值。"></textarea>
           </div>
           <div class="actions">
-            <button class="primary" id="mergeButton" type="button">憟???唳??/button>
-            <button class="ghost" id="mergeResetButton" type="button">皜征</button>
+            <button class="primary" id="mergeButton" type="button">合併並載入</button>
+            <button class="ghost" id="mergeResetButton" type="button">重設</button>
           </div>
           <div id="mergeStatus" class="status"></div>
         </section>
 
         <section class="panel-section">
-          <h2 class="panel-title">頛詨蝯?</h2>
-          <p class="panel-copy">瘥活靽格銵典?賣??郊?湔??銋隞交???銝甈～?蝯撓?箝?/p>
+          <h2 class="panel-title">輸出結果</h2>
+          <p class="panel-copy">這裡會顯示重新組合後的設定字串，可以直接複製回設定檔使用。</p>
           <textarea id="output" class="output-box" spellcheck="false"></textarea>
           <div class="actions">
-            <button class="primary" id="buildButton" type="button">??頛詨</button>
-            <button class="secondary" id="copyButton" type="button">銴ˊ蝯?</button>
+            <button class="primary" id="buildButton" type="button">產生輸出</button>
+            <button class="secondary" id="copyButton" type="button">複製結果</button>
           </div>
         </section>
       </aside>
@@ -522,20 +522,20 @@
       <main class="panel">
         <section class="panel-section controls">
           <div class="toolbar">
-            <input id="searchInput" type="search" placeholder="????迂嚗?憒?ExpRate?erverName?assword">
+            <input id="searchInput" type="search" placeholder="搜尋欄位名稱，例如 ExpRate、ServerName、Password">
             <div class="stats">
-              <div class="chip"><span id="fieldCount">0</span> ??雿?/div>
-              <div class="chip"><span id="visibleCount">0</span> ?＊蝷箔葉</div>
+              <div class="chip"><span id="fieldCount">0</span> 個欄位</div>
+              <div class="chip"><span id="visibleCount">0</span> 筆顯示中</div>
             </div>
           </div>
           <div id="groups" class="groups">
-            <div class="empty">?撌血鞎潔?閮剖?嚗敺??圾?身摰?/div>
+            <div class="empty">先在左側貼上設定，然後按「解析設定」。</div>
           </div>
         </section>
       </main>
     </div>
   </div>
 
-    <script src="app.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
