@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -398,6 +399,7 @@
         opacity: 0;
         transform: translateY(12px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -409,6 +411,7 @@
         opacity: 0;
         transform: translateY(8px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -441,6 +444,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="shell">
     <section class="hero">
@@ -498,7 +502,8 @@
           <h2 class="panel-title">新版欄位合併</h2>
           <p class="panel-copy">貼上新版設定與舊版設定，系統會保留舊值並補齊新版新增欄位，方便更新伺服器版本。</p>
           <div class="controls">
-            <textarea id="newVersionInput" spellcheck="false" placeholder="貼上新版設定內容，例如更新後的預設 OptionSettings。"></textarea>
+            <textarea id="newVersionInput" spellcheck="false"
+              placeholder="貼上新版設定內容，例如更新後的預設 OptionSettings。"></textarea>
             <textarea id="oldVersionInput" spellcheck="false" placeholder="貼上舊版設定內容，系統會盡量保留你原本的值。"></textarea>
           </div>
           <div class="actions">
@@ -538,4 +543,5 @@
 
   <script src="app.js" defer></script>
 </body>
+
 </html>
